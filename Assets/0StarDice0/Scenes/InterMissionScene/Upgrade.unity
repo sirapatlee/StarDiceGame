@@ -16359,6 +16359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3904cdc529fbcfb45a94d035061db46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starButtonKeyword: star
+  attackButtonKeyword: attack
   passiveSkillManager: {fileID: 0}
   creditText: {fileID: 3151496462550755199}
   goldText: {fileID: 0}
@@ -28870,7 +28872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: dd67ca6ee34ce8840a0f05a4bcbf5dfa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 54cf464f83c2edd449e8bbac31ffee31, type: 2}
   iconImage: {fileID: 207424393308347223}
   frameImage: {fileID: 642039737617734831}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -28883,6 +28885,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 2960853986850789543}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!114 &286379782208554484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29620,7 +29623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 515e88edd53b1444abe2dd0b15351204, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: e587854ef98a31d45a6b89d027778ff7, type: 2}
   iconImage: {fileID: 1311516729321102906}
   frameImage: {fileID: 1746096320192207298}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -29633,6 +29636,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 4162605770300841418}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!224 &1443182866067216936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29837,7 +29841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 7939c9ed7158b5b4ea8fb18256d36da5, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: a064f8410c9d8d840ba851ca0d459130, type: 2}
   iconImage: {fileID: 1710928075803565755}
   frameImage: {fileID: 2141005168689633603}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -29850,6 +29854,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 4344155484730481995}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &1606350320911394054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29991,7 +29996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: dd67ca6ee34ce8840a0f05a4bcbf5dfa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: f0528090cb4ddbf49bbf5d404799c90d, type: 2}
   iconImage: {fileID: 1653734105909592077}
   frameImage: {fileID: 2088314211757606901}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -30004,6 +30009,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 4396854678237725693}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &1692807210762900513
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30456,6 +30462,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 3802758600307306113}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!114 &2247831315830254961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30603,7 +30610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: dd67ca6ee34ce8840a0f05a4bcbf5dfa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: ad6d5e2b7f02f244ca0ad9470c7417d4, type: 2}
   iconImage: {fileID: 2465207665150539931}
   frameImage: {fileID: 2899822903964532579}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -30616,6 +30623,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 703079617672608619}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!1 &2580113254978318309
 GameObject:
   m_ObjectHideFlags: 0
@@ -30646,7 +30654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 7939c9ed7158b5b4ea8fb18256d36da5, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 01c9cf4a93acd764d8c9d908f40e4f82, type: 2}
   iconImage: {fileID: 2714062746534937607}
   frameImage: {fileID: 3432404196833412095}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -30659,6 +30667,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 1035181198382024695}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &2605183847424888875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30679,7 +30688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 7939c9ed7158b5b4ea8fb18256d36da5, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: baee6e9f0e7939545a85d74e86ac28ca, type: 2}
   iconImage: {fileID: 2734049467763343065}
   frameImage: {fileID: 3456894652578789665}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -30692,6 +30701,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 1010690749983784233}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &2671638172632654092
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30864,7 +30874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 80b093f82549daa4395c14b34c427eaa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: db6cf34d9f3f52c42a1a9e0821470928, type: 2}
   iconImage: {fileID: 2753621083223024689}
   frameImage: {fileID: 3188200091706860489}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -30877,6 +30887,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 991119201666574273}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!114 &2886409911372760583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31068,7 +31079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: dd67ca6ee34ce8840a0f05a4bcbf5dfa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: eddab97ddb994c746aa2ba395c792754, type: 2}
   iconImage: {fileID: 2886409911372760583}
   frameImage: {fileID: 2451794776292098559}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -31081,6 +31092,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 286379782208554487}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!1 &3099730705020087439
 GameObject:
   m_ObjectHideFlags: 0
@@ -31541,7 +31553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 80b093f82549daa4395c14b34c427eaa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 7cddb4545a1eec44191ce669e5b98b27, type: 2}
   iconImage: {fileID: 3741940818484226164}
   frameImage: {fileID: 4172052371789033356}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -31554,6 +31566,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 1736684361910463364}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &3699656697296178559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31730,6 +31743,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 2089566170787301170}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!224 &3946512829546175378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31871,7 +31885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 7939c9ed7158b5b4ea8fb18256d36da5, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 4bb3d5ac3b764c8498bb8c244633a4ac, type: 2}
   iconImage: {fileID: 3952121146059066327}
   frameImage: {fileID: 4382233199056505903}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -31884,6 +31898,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 2102964829051832359}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &4013132020655759817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32173,6 +32188,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 1634497732713230089}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!114 &4395596671859999546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32366,7 +32382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 80b093f82549daa4395c14b34c427eaa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: d8c164d522e8d47439dfe105c9c84381, type: 2}
   iconImage: {fileID: 4607408141262559705}
   frameImage: {fileID: 3889101911457291809}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -32379,6 +32395,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 1443182866067216937}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!1 &4529684678857613514
 GameObject:
   m_ObjectHideFlags: 0
@@ -32807,7 +32824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 80b093f82549daa4395c14b34c427eaa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 2bd0da25027af9341ad3a4aec5aeac8c, type: 2}
   iconImage: {fileID: 7492983533017711517}
   frameImage: {fileID: 6601956393121231270}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -32820,6 +32837,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 8818389892761761198}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!222 &5798614045020134203
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32891,6 +32909,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 8878551805262953920}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!114 &5879111223338530398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32954,7 +32973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 7939c9ed7158b5b4ea8fb18256d36da5, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 6e697bbe412f47a4d9899b9c59ebb23c, type: 2}
   iconImage: {fileID: 6010187019310258698}
   frameImage: {fileID: 6440263596397043186}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -32967,6 +32986,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 8691809982150711802}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!224 &5991722851410931148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33057,7 +33077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: dd67ca6ee34ce8840a0f05a4bcbf5dfa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: a1bfe30a54acb064bbd28b0232d74e10, type: 2}
   iconImage: {fileID: 6166866101258641828}
   frameImage: {fileID: 6889677117981566556}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -33070,6 +33090,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 9107094744403812948}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!1 &6097787156045342120
 GameObject:
   m_ObjectHideFlags: 0
@@ -33258,7 +33279,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -2.4466515}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -33709,7 +33730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20001ac00879d4e802f86d91911495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSkillData: {fileID: 11400000, guid: 80b093f82549daa4395c14b34c427eaa, type: 2}
+  passiveSkillData: {fileID: 11400000, guid: 7014eb822e95d7345a991b6d36b80394, type: 2}
   iconImage: {fileID: 7492983533017711517}
   frameImage: {fileID: 7923094038618145893}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
@@ -33722,6 +33743,7 @@ MonoBehaviour:
   lockedOverlayObject: {fileID: 5479639064614273133}
   tooltip: {fileID: 0}
   skillManager: {fileID: 0}
+  costText: {fileID: 0}
 --- !u!224 &7399059571088411628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34444,8 +34466,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 58.995}
-  m_SizeDelta: {x: 1473, y: 117.99}
+  m_AnchoredPosition: {x: 0, y: 102.97417}
+  m_SizeDelta: {x: 1473, y: 146.0217}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9107094744403812948
 GameObject:

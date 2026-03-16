@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d86df9f0bb4dab946a8e669d8dc1fc14, type: 3}
-  m_Name: SPD UP! I
+  m_Name: SPD UP! VI
   m_EditorClassIdentifier: 
   skillName: SPD UP! I
-  description: Speed Increase 1
+  description: Speed Increase 15
   icon: {fileID: 21300000, guid: c80d9964953129447b439db01810c5d4, type: 3}
   requiredSkills: []
   costPoint: 1
   bonusAttack: 0
   bonusMaxHP: 0
   bonusStar: 0
-  bonusSpeed: 1
+  bonusSpeed: 15
   bonusDefense: 0

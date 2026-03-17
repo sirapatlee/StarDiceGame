@@ -131,13 +131,25 @@ public class BoardManager : MonoBehaviour
                 // ถ้าเป็นคน (ไม่ใช่ AI) ให้เช็ค Norma ก่อน
                 if (!isAI && NormaSystem.TryGet(out var normaSystem))
                 {
-                    // เรียกฟังก์ชันที่เราเพิ่งแก้เป็น bool
-                    bool leveledUp = normaSystem.CheckNormaCondition();
+                    // 🟢 ต้องเรียก CanLevelUp() นะครับ (อย่าใช้ CheckNormaCondition)
+                    bool readyToLevelUp = normaSystem.CanLevelUp();
 
-                    if (leveledUp)
+                    if (readyToLevelUp)
                     {
-                        Debug.Log("[BoardManager] 🎉 Norma Level Up! รอผู้เล่นเลือกเป้าหมายใหม่...");
-                        return; // 🛑 หยุด! อย่าเพิ่งจบเทิร์น (รอผู้เล่นกด UI เลือกเสร็จก่อน)
+                        Debug.Log("[BoardManager] 🎉 เงื่อนไขครบแล้ว! เปิดหน้าต่างให้ผู้เล่นกดยืนยันส่งเควส...");
+                        
+                        // ไปตามหา UIManager แล้วสั่งเปิด Panel ส่งเควส
+                        NormaUIManager uiManager = FindFirstObjectByType<NormaUIManager>();
+                        if (uiManager != null) 
+                        {
+                            uiManager.ShowSubmitPanel();
+                        }
+                        else
+                        {
+                            Debug.LogError("หา NormaUIManager ไม่เจอ! หน้าต่างเลยไม่เด้ง");
+                        }
+                        
+                        return; // 🛑 หยุดเทิร์นไว้ตรงนี้ก่อน รอผู้เล่นกดปุ่มใน UI
                     }
                 }
                 StartCoroutine(FinishTurnRoutine());

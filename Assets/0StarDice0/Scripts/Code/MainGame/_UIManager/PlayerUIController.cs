@@ -77,11 +77,46 @@ public class PlayerUIController : MonoBehaviour
         int resolvedCredit = ResolvePersistentCredit();
         SetCreditUI(resolvedCredit);
 
-        if (starText != null)
-            starText.text = $"{myPlayer.PlayerStar}";
+        // -------------------------------------------------------------------
+        // 🟢 แก้ไขตรงนี้: ไปดึงข้อมูลเควสจาก NormaSystem มาโชว์ด้วย
+        // -------------------------------------------------------------------
+if (starText != null || winText != null)
+        {
+            int reqStars = 999;
+            int reqWins = 999;
+            NormaType activeQuest = NormaType.Stars; // ตัวแปรเก็บว่าตอนนี้ทำเควสอะไรอยู่
+            
+            if (NormaSystem.TryGet(out var normaSystem))
+            {
+                int nextRank = normaSystem.currentNormaRank + 1;
+                if (nextRank > normaSystem.maxNormaRank) nextRank = normaSystem.maxNormaRank;
+                
+                reqStars = normaSystem.GetRequirement(nextRank, NormaType.Stars);
+                reqWins = normaSystem.GetRequirement(nextRank, NormaType.Wins);
+                
+                // ถามระบบว่าตอนนี้ผู้เล่นเลือกเควสอะไรไว้
+                activeQuest = normaSystem.selectedNorma; 
+            }
 
-        if (winText != null)
-            winText.text = $"{myPlayer.WinCount}";
+            // --- จัดการข้อความ ดาว ---
+            if (starText != null)
+            {
+                if (activeQuest == NormaType.Stars)
+                    starText.text = $"Star: {myPlayer.PlayerStar} / {reqStars}"; // ถ้าเลือกดาว ให้โชว์เป้าหมาย
+                else
+                    starText.text = $"Star: {myPlayer.PlayerStar}"; // ถ้าไม่ได้เลือก โชว์แค่ดาวที่มี
+            }
+
+            // --- จัดการข้อความ ชนะต่อสู้ ---
+            if (winText != null)
+            {
+                if (activeQuest == NormaType.Wins)
+                    winText.text = $"Battle: {myPlayer.WinCount} / {reqWins}"; // ถ้าเลือกต่อสู้ ให้โชว์เป้าหมาย
+                else
+                    winText.text = $"Battle: {myPlayer.WinCount}"; // ถ้าไม่ได้เลือก โชว์แค่จำนวนที่ชนะ
+            }
+        }
+        // -------------------------------------------------------------------
 
         if (levelText != null)
             levelText.text = $"Lv. {myPlayer.PlayerLevel}";
@@ -105,7 +140,6 @@ public class PlayerUIController : MonoBehaviour
                 debuffTooltipHoverHandler.SetEntries(debuffEntries);
         }
     }
-
     private List<DebuffUIEntry> BuildDebuffEntries()
     {
         List<DebuffUIEntry> entries = new List<DebuffUIEntry>(2);

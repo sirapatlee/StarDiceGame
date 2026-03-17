@@ -53,6 +53,11 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("CurrentDeckData");
         ResetEquippedItemsForNewGame();
 
+        // ---------------------------------------------------------
+        // เพิ่มบรรทัดนี้เข้าไป เพื่อเรียกคำสั่งรีเซ็ต Equipment ให้ isOwned เป็น false
+        EquipmentManager.ClearSavedOwnershipStates();
+        // ---------------------------------------------------------
+
         if (RunSessionStore.TryGet(out var runSessionStore))
         {
             runSessionStore.ClearRunState();

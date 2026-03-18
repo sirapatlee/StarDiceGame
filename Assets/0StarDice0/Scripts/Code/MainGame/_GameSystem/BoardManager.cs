@@ -189,6 +189,7 @@ public class BoardManager : MonoBehaviour
     }
 
     // ฟังก์ชันช่วย Trigger Event สำหรับคนเล่น (แยกออกมาให้อ่านง่าย)
+    // ฟังก์ชันช่วย Trigger Event สำหรับคนเล่น
     private void TriggerEventForHuman(NodeConnection nodeData, GameObject playerObject)
     {
         if (!GameEventManager.TryGet(out _))
@@ -205,11 +206,18 @@ public class BoardManager : MonoBehaviour
                 GameEventManager.TryTriggerEvent("battle", playerObject);
                 break;
 
-            // 2. บอส -> ไป bossfire (ต้องแยกออกมา!)
+            // 2. บอส -> ไปฉากบอส (เปิดสวิตช์จบเกมด้วย!)
             case TileType.Boss:
-           // case TileType.SpecialBoss: // รวม SpecialBoss ไว้ด้วยก็ได้ถ้าอยากให้ไปฉากบอสเหมือนกัน
+            // case TileType.SpecialBoss:
                 Debug.Log($"[BoardManager] 👿 BOSS FIGHT! Triggering Boss Event.");
-                // ✅ ส่ง Event ชื่อ "boss" เพื่อให้ GameEventManager โหลดฉาก bossfire
+                
+                // -------------------------------------------------------------
+                // 🟢 เปิดสวิตช์ล่องหน เพื่อบอกระบบหลังต่อสู้จบว่า "นี่คือบอส!"
+                PlayerPrefs.SetInt("IsBossBattle", 1);
+                PlayerPrefs.Save();
+                // -------------------------------------------------------------
+                
+                // ส่ง Event ชื่อ "boss" เพื่อให้ GameEventManager โหลดฉากบอส
                 GameEventManager.TryTriggerEvent("boss", playerObject);
                 break;
 

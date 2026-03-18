@@ -49,6 +49,8 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("SelectedMonster");
         PlayerPrefs.SetInt("HasChosenMainCharacter", 0);
 
+        PlayerPrefs.SetInt("levelReached", 1);
+
         ResetCardAvailabilityToCommonOnly();
         PlayerPrefs.DeleteKey("CurrentDeckData");
         ResetEquippedItemsForNewGame();

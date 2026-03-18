@@ -185,6 +185,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &336835079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3172896104971464190, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &336835080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4842575571901737279, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &336835081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 650355116023024564, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &336835082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4891680156083634614, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &336835083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159737697407818837, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &336835084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4751217115871963684, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &336835085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 140352012015500431, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &336835086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2429088238283069791, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &336835087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 622961222175018936, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &336835088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5525047469955271997, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1127151008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121834515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,13 +5155,19 @@ MonoBehaviour:
   winBtn: {fileID: 1643662360}
   starBtnText: {fileID: 1643662361}
   winBtnText: {fileID: 1643662359}
-  submitPanel: {fileID: 0}
-  submitBtn: {fileID: 0}
+  submitPanel: {fileID: 336835080}
+  submitBtn: {fileID: 336835079}
   currentRankText: {fileID: 0}
   currentGoalText: {fileID: 0}
-  rankProgressText: {fileID: 0}
-  starProgressText: {fileID: 0}
-  winProgressText: {fileID: 0}
+  rankProgressText: {fileID: 336835086}
+  starProgressText: {fileID: 336835087}
+  winProgressText: {fileID: 336835088}
+  finalPhaseText: {fileID: 336835082}
+  finalPhaseImage: {fileID: 336835081}
+  objectsToHideOnBossPhase:
+  - {fileID: 336835085}
+  - {fileID: 336835084}
+  - {fileID: 336835083}
 --- !u!23 &3526027277129163054
 MeshRenderer:
   m_ObjectHideFlags: 0

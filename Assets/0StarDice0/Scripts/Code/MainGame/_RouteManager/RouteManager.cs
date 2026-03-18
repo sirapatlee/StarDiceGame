@@ -1170,6 +1170,17 @@ public class RouteManager : MonoBehaviour
             if (bossPrefab != null && targetNode.node != null)
             {
                 Instantiate(bossPrefab, targetNode.node.position, Quaternion.identity);
+                 GameEventManager eventManager = FindObjectOfType<GameEventManager>();
+        
+        if (eventManager != null)
+        {
+            // 🟢 2. สั่งให้ผู้จัดการ รัน Coroutine ของตัวผู้จัดการเอง!
+            eventManager.StartCoroutine(eventManager.WaitAndEndTurn());
+        }
+        else
+        {
+            Debug.LogError("หา GameEventManager ไม่เจอ! ลืมลากใส่ฉากหรือเปล่า?");
+        }
             }
         }
         else

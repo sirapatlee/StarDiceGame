@@ -398,6 +398,92 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585057900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3172896104971464190, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &585057901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4842575571901737279, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &585057902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 650355116023024564, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &585057903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4891680156083634614, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &585057904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159737697407818837, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585057905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4751217115871963684, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585057906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 140352012015500431, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &585057907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2429088238283069791, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &585057908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 622961222175018936, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &585057909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5525047469955271997, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1800484141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1665114581 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 286983589677044495, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
@@ -5670,13 +5756,19 @@ MonoBehaviour:
   winBtn: {fileID: 167663714}
   starBtnText: {fileID: 167663715}
   winBtnText: {fileID: 167663713}
-  submitPanel: {fileID: 0}
-  submitBtn: {fileID: 0}
+  submitPanel: {fileID: 585057901}
+  submitBtn: {fileID: 585057900}
   currentRankText: {fileID: 0}
   currentGoalText: {fileID: 0}
-  rankProgressText: {fileID: 0}
-  starProgressText: {fileID: 0}
-  winProgressText: {fileID: 0}
+  rankProgressText: {fileID: 585057907}
+  starProgressText: {fileID: 585057908}
+  winProgressText: {fileID: 585057909}
+  finalPhaseText: {fileID: 585057903}
+  finalPhaseImage: {fileID: 585057902}
+  objectsToHideOnBossPhase:
+  - {fileID: 585057906}
+  - {fileID: 585057905}
+  - {fileID: 585057904}
 --- !u!135 &3527332734477867225
 SphereCollider:
   m_ObjectHideFlags: 0

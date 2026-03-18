@@ -25,6 +25,11 @@ public class NormaUIManager : MonoBehaviour
     public TextMeshProUGUI starProgressText; // สำหรับโชว์: Stars 10 / 30
     public TextMeshProUGUI winProgressText;  // สำหรับโชว์: Wins 1 / 2
 
+    [Header("Max Rank UI")]
+    public TextMeshProUGUI finalPhaseText; // ลาก Text ตัวใหม่ที่จะโชว์ตอนเลเวลตันมาใส่ตรงนี้
+    public Image finalPhaseImage;
+    public GameObject[] objectsToHideOnBossPhase;
+
     // ตัวแปรสำหรับคอยเช็คว่าดาว/การชนะ เปลี่ยนแปลงไปหรือยัง (เอาไว้อัปเดต UI แบบ Real-time)
     private int lastStars = -1;
     private int lastWins = -1;
@@ -81,11 +86,69 @@ public class NormaUIManager : MonoBehaviour
         }
     }
 
-  public void UpdateInfoUI()
+public void UpdateInfoUI()
     {
         if (!NormaSystem.TryGet(out var normaSystem)) return;
 
-        // 1. ดึงข้อมูลปัจจุบันของผู้เล่น
+        bool isMaxRank = normaSystem.currentNormaRank >= normaSystem.maxNormaRank;
+
+        if (isMaxRank)
+        {
+            // 🛑 ซ่อน UI เควสเดิมทั้งหมด
+            if (rankProgressText != null) rankProgressText.gameObject.SetActive(false);
+            if (starProgressText != null) starProgressText.gameObject.SetActive(false);
+            if (winProgressText != null) winProgressText.gameObject.SetActive(false);
+            if (currentGoalText != null) currentGoalText.gameObject.SetActive(false);
+            if (currentRankText != null) currentRankText.gameObject.SetActive(false);
+
+            // 🛑 ปิดรูปภาพอีก 3 รูป (หรืออะไรก็ตามที่คุณลากมาใส่ใน Inspector)
+            if (objectsToHideOnBossPhase != null)
+            {
+                foreach (var obj in objectsToHideOnBossPhase)
+                {
+                    if (obj != null) obj.SetActive(false);
+                }
+            }
+
+            // 🌟 เปิด Text ตัวใหม่
+            if (finalPhaseText != null)
+            {
+                finalPhaseText.gameObject.SetActive(true);
+                finalPhaseText.text = "WARNING: BOSS APPEARED!"; 
+            }
+
+            // 🌟 เปิด Image ตัวใหม่
+            if (finalPhaseImage != null)
+            {
+                finalPhaseImage.gameObject.SetActive(true);
+            }
+            
+            return; // จบการทำงาน
+        }
+        else
+        {
+            // 🟢 ถ้ายังไม่ตัน: ให้แน่ใจว่า UI เดิมเปิดอยู่
+            if (rankProgressText != null) rankProgressText.gameObject.SetActive(true);
+            if (starProgressText != null) starProgressText.gameObject.SetActive(true);
+            if (winProgressText != null) winProgressText.gameObject.SetActive(true);
+            if (currentGoalText != null) currentGoalText.gameObject.SetActive(true);
+            if (currentRankText != null) currentRankText.gameObject.SetActive(true);
+
+            // 🟢 เปิดรููปภาพทั้ง 3 รูป กลับมาเป็นปกติ (เผื่อกรณีเริ่มกระดานใหม่)
+            if (objectsToHideOnBossPhase != null)
+            {
+                foreach (var obj in objectsToHideOnBossPhase)
+                {
+                    if (obj != null) obj.SetActive(true);
+                }
+            }
+
+            // 🛑 ซ่อน Text และ Image ตัวใหม่ (เด้งอันใหม่ทิ้ง)
+            if (finalPhaseText != null) finalPhaseText.gameObject.SetActive(false);
+            if (finalPhaseImage != null) finalPhaseImage.gameObject.SetActive(false);
+        }
+
+        // --- (โค้ดดึงข้อมูลและอัปเดตตัวเลขตามปกติ) ---
         int currentStars = 0;
         int currentWins = 0;
         if (GameTurnManager.CurrentPlayer != null)
@@ -94,41 +157,36 @@ public class NormaUIManager : MonoBehaviour
             currentWins = GameTurnManager.CurrentPlayer.WinCount;
         }
 
-        // 2. คำนวณเลเวลถัดไป เพื่อเอาไปดึงเป้าหมายจากระบบ (ถ้าเลเวลตันแล้ว ก็ให้ดึงเป้าหมายสูงสุด)
         int nextRank = normaSystem.currentNormaRank + 1;
-        if (nextRank > normaSystem.maxNormaRank) 
-        {
-            nextRank = normaSystem.maxNormaRank;
-        }
-
-        // 🟢 ดึงเป้าหมายของ "ดาว" และ "ต่อสู้" ของเลเวลนี้ออกมาเตรียมไว้เลย
+        if (nextRank > normaSystem.maxNormaRank) nextRank = normaSystem.maxNormaRank;
+        
         int reqStars = normaSystem.GetRequirement(nextRank, NormaType.Stars);
         int reqWins = normaSystem.GetRequirement(nextRank, NormaType.Wins);
-
-        // 3. อัปเดต UI ให้มีเครื่องหมาย / เสมอ!
         
-        // --- ส่วน Rank ---
+        NormaType activeQuest = normaSystem.selectedNorma;
+
         if (rankProgressText != null)
-            rankProgressText.text = $"Goal: {normaSystem.currentNormaRank} / {normaSystem.maxNormaRank}";
+            rankProgressText.text = $"Rank: {normaSystem.currentNormaRank} / {normaSystem.maxNormaRank}";
         
-        // --- ส่วน ดาว (มี / เสมอ) ---
+        if (currentRankText != null) 
+            currentRankText.text = $"Rank: {normaSystem.currentNormaRank}";
+
         if (starProgressText != null)
-            starProgressText.text = $"Stars: {currentStars} / {reqStars}";
-
-        // --- ส่วน ชนะต่อสู้ (มี / เสมอ) ---
-        if (winProgressText != null)
-            winProgressText.text = $"Wins: {currentWins} / {reqWins}";
-
-        // 4. (ส่วนเสริม) เน้นย้ำให้ผู้เล่นรู้ว่า "ตอนนี้กำลังทำเควสอะไรอยู่"
-        if (currentGoalText != null)
         {
-            if (normaSystem.selectedNorma == NormaType.Stars)
-                currentGoalText.text = $"Active Quest: Stars";
+            if (activeQuest == NormaType.Stars)
+                starProgressText.text = $"Stars: {currentStars} / {reqStars}";
             else
-                currentGoalText.text = $"Active Quest: Wins";
+                starProgressText.text = $"Stars: {currentStars}";
+        }
+
+        if (winProgressText != null)
+        {
+            if (activeQuest == NormaType.Wins)
+                winProgressText.text = $"Wins: {currentWins} / {reqWins}";
+            else
+                winProgressText.text = $"Wins: {currentWins}";
         }
     }
-
     public void ShowSelectionPanel(int nextLevel)
     {
         if (selectionPanel == null) return;
@@ -160,14 +218,39 @@ public class NormaUIManager : MonoBehaviour
     }
 
     // เมื่อผู้เล่นกดปุ่ม "ส่งเควส"
+// เมื่อผู้เล่นกดปุ่ม "ส่งเควส"
     private void OnSubmitClicked()
     {
         // 1. ปิดหน้าต่างนี้ทิ้งไป
         if (submitPanel != null) submitPanel.SetActive(false);
 
-        // 2. สั่งอัปเลเวลของจริง! (มันจะไปเด้งหน้าต่างเลือกเควสถัดไปต่อให้อัตโนมัติ)
+        // 2. ดำเนินการส่งเควส
         if (NormaSystem.TryGet(out var normaSystem))
         {
+            PlayerState player = GameTurnManager.CurrentPlayer;
+            if (player != null)
+            {
+                // 🟢 หักค่าทรัพยากรตามประเภทเควสที่เลือกไว้
+                if (normaSystem.selectedNorma == NormaType.Stars)
+                {
+                    player.PlayerStar -= normaSystem.targetAmount;
+                    
+                    // ป้องกันค่าติดลบเผื่อไว้
+                    if (player.PlayerStar < 0) player.PlayerStar = 0; 
+                    
+                    Debug.Log($"[Norma] จ่าย {normaSystem.targetAmount} ดาว เพื่ออัปเลเวล! (เหลือ {player.PlayerStar} ดาว)");
+                }
+                else if (normaSystem.selectedNorma == NormaType.Wins)
+                {
+                    player.WinCount -= normaSystem.targetAmount;
+                    
+                    if (player.WinCount < 0) player.WinCount = 0;
+                    
+                    Debug.Log($"[Norma] ใช้ยอดชนะ {normaSystem.targetAmount} ครั้ง เพื่ออัปเลเวล! (เหลือ {player.WinCount} ครั้ง)");
+                }
+            }
+
+            // 3. สั่งอัปเลเวลของจริง! (มันจะไปเด้งหน้าต่างเลือกเควสถัดไปต่อให้อัตโนมัติ)
             normaSystem.NormaLevelUp(); 
         }
     }

@@ -38,7 +38,7 @@ public class EquipmentManager : MonoBehaviour
 
     // --- แก้ไข: เปลี่ยนจาก void เป็น bool เพื่อให้บอกได้ว่า "ได้ของใหม่" หรือ "ได้ของซ้ำ" ---
     // รับค่า duplicateReward เข้ามาด้วย เผื่ออยากให้ไอเท็มแต่ละชิ้นให้เงินคืนไม่เท่ากัน (ค่าเริ่มต้น 150)
-    public bool UnlockItem(ItemID idToUnlock, int duplicateReward = 150)
+    public bool UnlockItem(ItemID idToUnlock, int duplicateReward = 300)
     {
         if (equipmentMap.ContainsKey(idToUnlock))
         {
@@ -113,14 +113,16 @@ public class EquipmentManager : MonoBehaviour
         return data;
     }
 
-    public static void ClearSavedOwnershipStates()
+   public static void ClearSavedOwnershipStates()
     {
+        // 1. ลบไฟล์เซฟทิ้ง
         foreach (ItemID id in Enum.GetValues(typeof(ItemID)))
         {
             if (id == ItemID.None) continue;
             PlayerPrefs.DeleteKey(OwnershipPrefKeyPrefix + id);
         }
 
+        // 2. ล้างค่าใน Instance (ถ้ามี)
         if (Instance != null)
         {
             foreach (var item in Instance.allEquipmentList)
@@ -129,9 +131,17 @@ public class EquipmentManager : MonoBehaviour
                 item.isOwned = false;
             }
         }
+
+        // 3. 🟢 เพิ่มประกันความเสี่ยง: กวาดล้าง ScriptableObject ทั้งโปรเจกต์
+        // (เผื่อถูกเรียกตอนที่ Instance ยังไม่เกิด เช่น หน้า Main Menu)
+        EquipmentData[] allData = Resources.FindObjectsOfTypeAll<EquipmentData>();
+        foreach (var item in allData)
+        {
+            if (item != null) item.isOwned = false;
+        }
     }
 
-    private void LoadOwnershipStates()
+ private void LoadOwnershipStates()
     {
         foreach (var pair in equipmentMap)
         {
@@ -139,6 +149,11 @@ public class EquipmentManager : MonoBehaviour
             if (PlayerPrefs.HasKey(key))
             {
                 pair.Value.isOwned = PlayerPrefs.GetInt(key) == 1;
+            }
+            else
+            {
+                // 🟢 เพิ่ม else เข้ามา: ถ้าไม่มีไฟล์เซฟ (เช่น เพิ่งกด New game) ต้องริบของคืน!
+                pair.Value.isOwned = false; 
             }
         }
     }

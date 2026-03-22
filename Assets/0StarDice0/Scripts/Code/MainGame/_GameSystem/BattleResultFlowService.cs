@@ -12,15 +12,18 @@ public static class BattleResultFlowService
     private static CoroutineRunner runner;
     private static bool isProcessingTransition;
 
-   public static void HandleRewardAndReturnToBoard(int minReward = DefaultMinReward, int maxReward = DefaultMaxReward)
+  public static void HandleRewardAndReturnToBoard(int minReward = DefaultMinReward, int maxReward = DefaultMaxReward)
     {
         if (isProcessingTransition) return;
 
         PlayerState rewardTarget = ResolveHumanPlayerState();
         if (rewardTarget != null)
         {
-            rewardTarget.RecordBattleWin();
+            // 🟢 1. ดูดเลือดกลับมาก่อนเลย! (ตอนที่ฉากต่อสู้ยังมีชีวิตอยู่)
+            SyncHPFromBattleToBoard(rewardTarget);
 
+            // แจกรางวัลตามปกติ
+            rewardTarget.RecordBattleWin();
             int reward = Random.Range(minReward, maxReward + 1);
             rewardTarget.PlayerCredit += reward;
 
@@ -36,35 +39,25 @@ public static class BattleResultFlowService
             Debug.LogWarning("[BattleResultFlow] Could not find human PlayerState for reward flow.");
         }
 
-        // ---------------------------------------------------------
-        // 🟢 เช็คสวิตช์ว่า "นี่คือการสู้บอสใช่หรือไม่?"
-        // ---------------------------------------------------------
+        // 🟢 2. เช็คสวิตช์บอส 
         bool isBossBattle = PlayerPrefs.GetInt("IsBossBattle", 0) == 1;
 
         if (isBossBattle)
         {
             Debug.Log("👑 [BattleResultFlow] ปราบบอสสำเร็จ! จบเกม กลับหน้า InterMission");
-            
-            // ปิดสวิตช์กลับเป็น 0 เพื่อไม่ให้รอบต่อไปบั๊ก
             PlayerPrefs.SetInt("IsBossBattle", 0);
             PlayerPrefs.Save();
-
-            // ส่งกลับหน้าล็อบบี้ / เมนูเตรียมตัว
             StartTransition(ReturnToSceneKeepingRuntimeHub(InterMissionSceneName));
         }
         else
         {
             Debug.Log("⚔️ [BattleResultFlow] ชนะมอนสเตอร์ปกติ กลับไปกระดาน");
-            
-            // โค้ดเดิม: ส่งกลับหน้ากระดาน
             string targetBoardScene = PlayerPrefs.GetString(GameEventManager.LastBoardSceneKey, "TestMain");
             PlayerPrefs.SetInt(GameTurnManager.PendingBattleReturnKey, 1);
             PlayerPrefs.Save();
-
             StartTransition(ReturnToSceneKeepingRuntimeHub(targetBoardScene));
         }
     }
-
     public static void HandleRestartToInterMission()
     {
         if (isProcessingTransition) return;
@@ -178,6 +171,32 @@ public static class BattleResultFlowService
         finally
         {
             isProcessingTransition = false;
+        }
+    }
+
+    // 🟢 ฟังก์ชันใหม่สำหรับสูบเลือดจากฉากต่อสู้มาใส่ตัวละครบนบอร์ด
+    private static void SyncHPFromBattleToBoard(PlayerState target)
+    {
+        if (target == null) return;
+
+        // ค้นหา MonoBehaviour ทั้งหมดที่กำลังทำงานอยู่ (ซึ่งตอนนี้ฉากต่อสู้ยังเปิดอยู่)
+        foreach (MonoBehaviour behaviour in Object.FindObjectsOfType<MonoBehaviour>(true))
+        {
+            if (behaviour == null) continue;
+
+            // มุดเข้าไปหาตัวแปรที่ชื่อ "playerHP" ในสคริปต์
+            var hpField = behaviour.GetType().GetField("playerHP", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            
+            if (hpField != null && hpField.FieldType == typeof(int))
+            {
+                int battleHp = (int)hpField.GetValue(behaviour);
+                
+                // อัปเดตเลือดกลับไปที่บอร์ด (ป้องกันเลือดติดลบ หรือเกิน Max)
+                target.PlayerHealth = Mathf.Clamp(battleHp, 0, Mathf.Max(1, target.MaxHealth));
+                
+                Debug.Log($"[BattleResultFlow] 💖 ดูดเลือดปัจจุบัน ({battleHp}) กลับไปที่ตัวละครบนบอร์ดสำเร็จ!");
+                return; // เจอแล้ว ดึงแล้ว หยุดหาได้เลย
+            }
         }
     }
 

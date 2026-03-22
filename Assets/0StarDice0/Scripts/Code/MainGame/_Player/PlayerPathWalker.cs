@@ -294,6 +294,8 @@ public class PlayerPathWalker : MonoBehaviour
             Debug.LogError("[Card Effect] ไม่พบ Node ปลายทางใน RouteManager! ระบบเดินอาจผิดพลาด");
         }
 
+        CheckFinalNodeEvent();
+
         // 3. (Optional) Play Sound
         // AudioManager.Instance.PlaySfx("WarpSound");
     }

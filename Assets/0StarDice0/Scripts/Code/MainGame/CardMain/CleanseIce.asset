@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2b3222be62d01847beb903d1a4aa9ce, type: 3}
-  m_Name: CardMultiply2
+  m_Name: CleanseIce
   m_EditorClassIdentifier: 
-  cardName: CardMultiplyr2
+  cardName: Cleanse Ice
   description: 
-  cardImage: {fileID: 21300000, guid: da700ce6b8a82714aa63f3bb915ad58b, type: 3}
+  cardImage: {fileID: 21300000, guid: 697d7b5521e48724fb091e980ee1a253, type: 3}
   price: 100
-  cardType: 1
-  lockNumber: 2
+  cardType: 5
+  lockNumber: 1
+  healAmount: 30

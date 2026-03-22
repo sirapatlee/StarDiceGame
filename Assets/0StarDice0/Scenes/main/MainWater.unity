@@ -9675,8 +9675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da5aa8a5f28a7542b3fc0c69dbaa134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useCardButton: {fileID: 0}
-  useCardImage: {fileID: 0}
+  useCardButton: {fileID: 1695746335}
+  useCardImage: {fileID: 1695746336}
   currentCard: {fileID: 0}
   isPlayerTurn: 0
 --- !u!4 &467549407
@@ -39498,8 +39498,8 @@ MonoBehaviour:
     connectedNodes:
     - {fileID: 74729857}
     tileID: 2
-    type: 4
-    eventName: draw
+    type: 0
+    eventName: normal
     lockRandomType: 0
   - node: {fileID: 74729857}
     connectedNodes:
@@ -41309,6 +41309,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5272416929439947348, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
   m_PrefabInstance: {fileID: 1151711721}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695746335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3462586120824983271, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1695746336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2326468897636503161, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1701589967 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8980013454646508981, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}

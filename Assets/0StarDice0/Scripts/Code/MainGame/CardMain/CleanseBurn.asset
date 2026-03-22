@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2b3222be62d01847beb903d1a4aa9ce, type: 3}
-  m_Name: CardMultiply2
+  m_Name: CleanseBurn
   m_EditorClassIdentifier: 
-  cardName: CardMultiplyr2
-  description: 
-  cardImage: {fileID: 21300000, guid: da700ce6b8a82714aa63f3bb915ad58b, type: 3}
+  cardName: Cleanse Burn
+  description: "\u0E25\u0E1A\u0E2A\u0E16\u0E32\u0E19\u0E30\u0E40\u0E1C\u0E32\u0E44\u0E2B\u0E21\u0E49"
+  cardImage: {fileID: 21300000, guid: ae82c8d469f1c484c9a1195cd0a11148, type: 3}
   price: 100
-  cardType: 1
-  lockNumber: 2
+  cardType: 3
+  lockNumber: 1
+  healAmount: 30

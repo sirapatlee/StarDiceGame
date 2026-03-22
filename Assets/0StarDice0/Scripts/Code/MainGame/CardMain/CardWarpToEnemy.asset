@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2b3222be62d01847beb903d1a4aa9ce, type: 3}
-  m_Name: CardMultiply2
+  m_Name: CardWarpToEnemy
   m_EditorClassIdentifier: 
-  cardName: CardMultiplyr2
+  cardName: Card WarptoEnemy
   description: 
-  cardImage: {fileID: 21300000, guid: da700ce6b8a82714aa63f3bb915ad58b, type: 3}
-  price: 100
-  cardType: 1
-  lockNumber: 2
+  cardImage: {fileID: 21300000, guid: f1a32a0de7d468e439a11b71595c3103, type: 3}
+  price: 150
+  cardType: 8
+  lockNumber: 1
+  healAmount: 30

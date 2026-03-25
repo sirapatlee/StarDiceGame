@@ -68193,6 +68193,18 @@ PrefabInstance:
       propertyPath: 'shopSlots.Array.data[4]'
       value: 
       objectReference: {fileID: 7477469189143738186}
+    - target: {fileID: 4220446787842215716, guid: 12dba45db14892d4bba2b4a939ba9f98, type: 3}
+      propertyPath: allPossibleCards.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220446787842215716, guid: 12dba45db14892d4bba2b4a939ba9f98, type: 3}
+      propertyPath: 'allPossibleCards.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: af3116ed59dcd0447a919f9caf514747, type: 2}
+    - target: {fileID: 4220446787842215716, guid: 12dba45db14892d4bba2b4a939ba9f98, type: 3}
+      propertyPath: 'allPossibleCards.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bf0b9d62ca762d5479127010bd8a6998, type: 2}
     - target: {fileID: 6817492124456340367, guid: 12dba45db14892d4bba2b4a939ba9f98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 567.3106
@@ -90618,6 +90630,8 @@ MonoBehaviour:
   PlayerLevel: 1
   CurrentExp: 0
   MaxExp: 100
+  StunTurnsRemaining: 0
+  hasDoubleStarBuff: 0
 --- !u!108 &5226295481623699056
 Light:
   m_ObjectHideFlags: 0
@@ -146299,6 +146313,8 @@ MonoBehaviour:
   PlayerLevel: 1
   CurrentExp: 0
   MaxExp: 100
+  StunTurnsRemaining: 0
+  hasDoubleStarBuff: 0
 --- !u!1 &8853801437567468366
 GameObject:
   m_ObjectHideFlags: 0

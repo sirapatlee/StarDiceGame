@@ -599,7 +599,7 @@ private IEnumerator ShowItemImageAfterDelay(Sprite itemSprite, float delayTime)
         PlayerState p = target.GetComponent<PlayerState>();
         if (p != null) 
         {
-            int starAmount = 15; // จำนวนดาวปกติที่ช่องนี้จะแจก
+            int starAmount = 10; // จำนวนดาวปกติที่ช่องนี้จะแจก
 
             // 🟢 เช็คว่ามีบัฟดาว x2 ติดตัวมาจากการใช้การ์ดหรือเปล่า?
             if (p.hasDoubleStarBuff)

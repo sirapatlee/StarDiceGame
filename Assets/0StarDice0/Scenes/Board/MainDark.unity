@@ -27353,7 +27353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd4a7ffb59f51645b56c4a66c6c3b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardGameSceneName: TestMain
+  boardGameSceneName: MainDark
   randomEventKeys:
   - star
   - trap
@@ -27362,7 +27362,7 @@ MonoBehaviour:
   - move
   - drop
   - special
-  - warp
+  - teleport
   - draw
   randomMinigameEventKeys:
   - minigamefappy

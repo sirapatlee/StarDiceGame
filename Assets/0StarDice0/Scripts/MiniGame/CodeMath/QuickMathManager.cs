@@ -179,17 +179,7 @@ public Button exitButton;
         if (score >= 2000) 
         {
             rewardAmount = 500;
-if (GameTurnManager.CurrentPlayer != null)
-{
-    PlayerState p = GameTurnManager.CurrentPlayer.GetComponent<PlayerState>();
-    if (p != null) p.PlayerCredit += rewardAmount;
-}
-
-
-if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
-{
-    GameData.Instance.selectedPlayer.AddCredit(rewardAmount);
-}
+MiniGameRewardService.TryGrantFixedCreditReward(rewardAmount, "CodeMath/QuickMathManager");
             if (roll <= 20) // 1-20 (20%)
             {
                 EquipmentManager.Instance.UnlockItem(KnightSword);
@@ -230,17 +220,7 @@ if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
         else if (score >= 1000) 
         {
             rewardAmount = 300;
-if (GameTurnManager.CurrentPlayer != null)
-{
-    PlayerState p = GameTurnManager.CurrentPlayer.GetComponent<PlayerState>();
-    if (p != null) p.PlayerCredit += rewardAmount;
-}
-
-
-if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
-{
-    GameData.Instance.selectedPlayer.AddCredit(rewardAmount);
-}
+MiniGameRewardService.TryGrantFixedCreditReward(rewardAmount, "CodeMath/QuickMathManager");
             if (roll <= 40) // 1-40 (40%)
             {
                 EquipmentManager.Instance.UnlockItem(HearthNeckless);
@@ -262,17 +242,7 @@ if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
         else if (score >= 500) 
         {
             rewardAmount = 100;
-if (GameTurnManager.CurrentPlayer != null)
-{
-    PlayerState p = GameTurnManager.CurrentPlayer.GetComponent<PlayerState>();
-    if (p != null) p.PlayerCredit += rewardAmount;
-}
-
-
-if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
-{
-    GameData.Instance.selectedPlayer.AddCredit(rewardAmount);
-}
+MiniGameRewardService.TryGrantFixedCreditReward(rewardAmount, "CodeMath/QuickMathManager");
             // แบ่งโอกาส 4 ชิ้น ชิ้นละ 25% ให้เท่าๆ กัน
             if (roll <= 20) 
             {
@@ -310,4 +280,5 @@ if (GameData.Instance != null && GameData.Instance.selectedPlayer != null)
             showImage.gameObject.SetActive(false);
         }
     }
+
 }

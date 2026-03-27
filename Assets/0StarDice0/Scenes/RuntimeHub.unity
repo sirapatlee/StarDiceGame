@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cb17b1ca2515940a0d62a8612e640a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlayer: {fileID: 0}
+  defaultSelectedPlayer: {fileID: 11400000, guid: fd99dcc01dcbf8e4ab42478e31fc6b15, type: 2}
 --- !u!114 &1583492661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +773,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de5245487679514998e2698520d12a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlayer: {fileID: 0}
+  _selectedPlayer: {fileID: 0}
+  selectedPlayerProgress:
+    playerId: 
+    credit: 0
+    level: 1
+    currentExp: 0
+    maxExp: 100
   savedDeck: []
   selectedDeck: []
   selectedCards: []

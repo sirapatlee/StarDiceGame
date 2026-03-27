@@ -19475,6 +19475,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: rewardPool.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: 'rewardPool.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fc728578ce373154c8447b7683d0df6b, type: 2}
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: 'rewardPool.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bb493680e97e4345b38b234283df9d7, type: 2}
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: 'rewardPool.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 116789fbdd467ff4599367d944738836, type: 2}
     - target: {fileID: 1777269012667938593, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -21716,7 +21732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd4a7ffb59f51645b56c4a66c6c3b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardGameSceneName: TestMain
+  boardGameSceneName: MainWind
   randomEventKeys:
   - star
   - trap
@@ -21725,7 +21741,7 @@ MonoBehaviour:
   - move
   - drop
   - special
-  - warp
+  - teleport
   - draw
   randomMinigameEventKeys:
   - minigamefappy

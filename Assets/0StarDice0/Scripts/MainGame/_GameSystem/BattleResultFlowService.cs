@@ -12,18 +12,27 @@ public static class BattleResultFlowService
     private static CoroutineRunner runner;
     private static bool isProcessingTransition;
 
-  public static void HandleRewardAndReturnToBoard(int minReward = DefaultMinReward, int maxReward = DefaultMaxReward)
+ public static void HandleRewardAndReturnToBoard(int minReward = DefaultMinReward, int maxReward = DefaultMaxReward, bool isMiniGame = false)
     {
         if (isProcessingTransition) return;
 
         PlayerState rewardTarget = ResolveHumanPlayerState();
         if (rewardTarget != null)
         {
-            // 🟢 1. ดูดเลือดกลับมาก่อนเลย! (ตอนที่ฉากต่อสู้ยังมีชีวิตอยู่)
             SyncHPFromBattleToBoard(rewardTarget);
 
-            // แจกรางวัลตามปกติ
-            rewardTarget.RecordBattleWin();
+            // 🟢 2. เอาสวิตช์มาครอบไว้! ถ้าไม่ใช่มินิเกม ถึงจะยอมให้ +1 Battle
+            if (!isMiniGame)
+            {
+                rewardTarget.RecordBattleWin();
+                Debug.Log("[BattleResultFlow] ⚔️ ชนะการต่อสู้จริง! เควสต์ Battle +1");
+            }
+            else
+            {
+                Debug.Log("[BattleResultFlow] 🎮 จบมินิเกม! ข้ามการบวกแต้ม Battle");
+            }
+
+            // แจกรางวัลตามปกติ (โค้ดเดิมของคุณเลยครับ)
             int reward = Random.Range(minReward, maxReward + 1);
             rewardTarget.PlayerCredit += reward;
 

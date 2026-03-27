@@ -384,7 +384,7 @@ public class GameEventManager : MonoBehaviour
             case "level 1":
             case "minigamespotmemory":
             case "minigamemath":
-                StartCoroutine(LoadMinigameSceneCoroutine(eventName));
+                StartCoroutine(LoadBattleSceneAdditiveCoroutine(eventName));
                 break;
             default:
                 if (eventPanels.ContainsKey(eventName.ToLower())) ShowPanel(eventName, true);

@@ -8570,11 +8570,11 @@ Transform:
   m_GameObject: {fileID: 431640233}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4330532, y: -0.23134974, z: 0.116036035, w: 0.86341065}
-  m_LocalPosition: {x: -1024, y: -532.99, z: -4.01}
+  m_LocalPosition: {x: 4, y: 7.51001, z: -4.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1704142123}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 53.273, y: -30, z: 0}
 --- !u!114 &431640235
 MonoBehaviour:
@@ -20208,11 +20208,11 @@ Transform:
   m_GameObject: {fileID: 852189467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1028, y: -540.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1704142123}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &852189469
 MonoBehaviour:
@@ -27582,6 +27582,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: rewardPool.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: 'rewardPool.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b0e84d025e14da43b494adcc6ca2407, type: 2}
+    - target: {fileID: 144419965560420974, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: 'rewardPool.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 858f903a60f83564e9adc4158ab4db4e, type: 2}
     - target: {fileID: 1248879229046112465, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -27602,6 +27614,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1767821034}
+    - target: {fileID: 3017469373648889625, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1631831476}
+    - target: {fileID: 3017469373648889625, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnBossTile
+      objectReference: {fileID: 0}
     - target: {fileID: 3063219199372805514, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -41433,10 +41453,7 @@ Transform:
   m_LocalPosition: {x: 1028, y: 540.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 431640234}
-  - {fileID: 1792071788}
-  - {fileID: 852189468}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712191620
@@ -42939,7 +42956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd4a7ffb59f51645b56c4a66c6c3b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardGameSceneName: TestMain
+  boardGameSceneName: MainWater
   randomEventKeys:
   - star
   - trap
@@ -42948,7 +42965,7 @@ MonoBehaviour:
   - move
   - drop
   - special
-  - warp
+  - teleport
   - draw
   randomMinigameEventKeys:
   - minigamefappy
@@ -44164,11 +44181,11 @@ Transform:
   m_GameObject: {fileID: 1792071787}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -1028, y: -537.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1704142123}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &1792071789
 MonoBehaviour:
@@ -51845,6 +51862,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1704142123}
+  - {fileID: 431640234}
+  - {fileID: 1792071788}
+  - {fileID: 852189468}
   - {fileID: 1292155086}
   - {fileID: 1631831475}
   - {fileID: 1342807352}

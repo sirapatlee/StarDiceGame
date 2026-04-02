@@ -195,14 +195,22 @@ public class BoardManager : MonoBehaviour
                 break;
 
             // 🛑 กลุ่มช่องอื่นๆ ทั้งหมด (Trap, Event, Monster, Treasure, Minigame, etc.)
+           // 🛑 กลุ่มช่องอื่นๆ ทั้งหมด (Trap, Event, Monster, Treasure, Minigame, etc.)
             default:
                 if (isAI)
                 {
-                    // 🤖 ถ้าเป็น AI -> "เมินหมด!"
-                    Debug.Log($"[BoardManager] 🤖 AI {playerObject.name} เมินช่อง {nodeData.type} -> จบเทิร์นทันที");
-
-                    // ข้าม Event Manager ไปเลย แล้วจบเทิร์น
-                    StartCoroutine(FinishTurnRoutine());
+                    // 🟢 เพิ่มข้อยกเว้น: ถ้าช่องนั้นคือ "Lava" ให้ AI โดน Event ด้วย!
+                    if (!string.IsNullOrEmpty(nodeData.eventName) && nodeData.eventName.ToLower() == "lava")
+                    {
+                        Debug.Log($"[BoardManager] 🌋 AI {playerObject.name} เหยียบช่อง Lava! ส่งต่อให้ EventManager จัดการ...");
+                        GameEventManager.TryTriggerEvent("lava", playerObject);
+                    }
+                    else
+                    {
+                        // 🤖 ถ้าเป็น AI แล้วเป็นช่องอื่นๆ (หีบ, มอนสเตอร์, มินิเกม) -> "เมินหมด!"
+                        Debug.Log($"[BoardManager] 🤖 AI {playerObject.name} เมินช่อง {nodeData.type} ({nodeData.eventName}) -> จบเทิร์นทันที");
+                        StartCoroutine(FinishTurnRoutine());
+                    }
                 }
                 else
                 {

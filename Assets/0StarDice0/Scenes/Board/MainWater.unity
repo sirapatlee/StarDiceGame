@@ -5074,6 +5074,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 426085417}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: tooltipText
+      value: 
+      objectReference: {fileID: 1297866680}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: tooltipPanel
+      value: 
+      objectReference: {fileID: 1297866681}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: debuffSlots.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[0]'
+      value: 
+      objectReference: {fileID: 579712535}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1297866679}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1297866678}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1297866677}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1297866676}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[5]'
+      value: 
+      objectReference: {fileID: 579712535}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1297866679}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1297866678}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1297866677}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1297866676}
     - target: {fileID: 2470346983964258067, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
       propertyPath: cardImage
       value: 
@@ -5146,6 +5202,14 @@ PrefabInstance:
       propertyPath: debuffIconContainer
       value: 
       objectReference: {fileID: 1975012659}
+    - target: {fileID: 6044677963202408386, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: debuffImage
+      value: 
+      objectReference: {fileID: 579712535}
+    - target: {fileID: 6044677963202408386, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 426085417}
     - target: {fileID: 8243921093852075540, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
       propertyPath: 'buttons.Array.data[0]'
       value: 
@@ -12145,6 +12209,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576845450}
   m_CullTransparentMesh: 1
+--- !u!114 &579712535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4660061697504459964, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579949922
 GameObject:
   m_ObjectHideFlags: 0
@@ -31924,6 +31999,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297331584}
   m_CullTransparentMesh: 1
+--- !u!114 &1297866676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5498121526800180624, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1297866677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8161594060636667530, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1297866678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 927420007634731743, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1297866679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 93710184423960456, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1297866680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5257112150421912915, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1297866681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6273948618034510498, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 1151711721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1303120855
 GameObject:
   m_ObjectHideFlags: 0
@@ -39255,6 +39390,9 @@ MonoBehaviour:
   debuffIconSize: {x: 32, y: 32}
   burnDebuffSprite: {fileID: 0}
   iceDebuffSprite: {fileID: 0}
+  curseDebuffSprite: {fileID: 0}
+  poisonDebuffSprite: {fileID: 0}
+  SleepDebuffSprite: {fileID: 0}
 --- !u!114 &1628047173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42964,7 +43102,7 @@ MonoBehaviour:
   - debuff
   - move
   - drop
-  - special
+  - teleport
   - teleport
   - draw
   randomMinigameEventKeys:

@@ -368,6 +368,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &538618029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4660061697504459964, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &622685032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,6 +436,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d8a4de166b9104d86d64c6f37eb41a, type: 3}
+--- !u!114 &711489930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5498121526800180624, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &711489931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8161594060636667530, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &711489932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 927420007634731743, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &711489933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 93710184423960456, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &711489934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5257112150421912915, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &711489935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6273948618034510498, guid: a962b4b4c2e5a0643831b9021567ca52, type: 3}
+  m_PrefabInstance: {fileID: 737406307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &714090377
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +859,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 5224532647178554990}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: tooltipText
+      value: 
+      objectReference: {fileID: 711489934}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: tooltipPanel
+      value: 
+      objectReference: {fileID: 711489935}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: debuffSlots.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[0]'
+      value: 
+      objectReference: {fileID: 538618029}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[1]'
+      value: 
+      objectReference: {fileID: 711489933}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[2]'
+      value: 
+      objectReference: {fileID: 711489932}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[3]'
+      value: 
+      objectReference: {fileID: 711489931}
+    - target: {fileID: 1594534279502797025, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: 'debuffSlots.Array.data[4]'
+      value: 
+      objectReference: {fileID: 711489930}
     - target: {fileID: 4368973437954284956, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 247.11824
@@ -852,6 +959,14 @@ PrefabInstance:
       propertyPath: debuffIconContainer
       value: 
       objectReference: {fileID: 1063790992}
+    - target: {fileID: 6044677963202408386, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: debuffImage
+      value: 
+      objectReference: {fileID: 538618029}
+    - target: {fileID: 6044677963202408386, guid: 0a40572749428194ab8ec1ec2928d74a, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 5224532647178554990}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10239,12 +10354,19 @@ MonoBehaviour:
   RuntimeStarModifier: 0
   PassiveStarGainBonus: 0
   DebuffBurn: 0
+  backwardCurseTurns: 0
   DebuffBurnTurnsRemaining: 0
   hasIceEffect: 0
+  poisonDebuffTurns: 0
+  sleepDebuffTurns: 0
   WinCount: 0
   PlayerLevel: 1
   CurrentExp: 0
   MaxExp: 100
+  persistentProgressSnapshot:
+    level: 1
+    currentExp: 0
+    maxExp: 100
   StunTurnsRemaining: 0
   hasDoubleStarBuff: 0
 --- !u!1 &5226026406862244884
@@ -25525,12 +25647,19 @@ MonoBehaviour:
   RuntimeStarModifier: 0
   PassiveStarGainBonus: 0
   DebuffBurn: 0
+  backwardCurseTurns: 0
   DebuffBurnTurnsRemaining: 0
   hasIceEffect: 0
+  poisonDebuffTurns: 0
+  sleepDebuffTurns: 0
   WinCount: 0
   PlayerLevel: 1
   CurrentExp: 0
   MaxExp: 100
+  persistentProgressSnapshot:
+    level: 1
+    currentExp: 0
+    maxExp: 100
   StunTurnsRemaining: 0
   hasDoubleStarBuff: 0
 --- !u!23 &8885097399028577372
@@ -27361,7 +27490,7 @@ MonoBehaviour:
   - debuff
   - move
   - drop
-  - special
+  - teleport
   - teleport
   - draw
   randomMinigameEventKeys:

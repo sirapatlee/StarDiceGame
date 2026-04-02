@@ -359,6 +359,9 @@ public class GameEventManager : MonoBehaviour
             case "battle": StartCoroutine(MonsterBattleCoroutine()); break;
             case "boss":StartCoroutine(BossBattleCoroutine());break;
             case "specialboss":StartCoroutine(SpecialBossBattleCoroutine());break;
+            case "debuff": TriggerRandomDebuff(target); break;
+            case "curse": CurseEffect(target); break;
+            case "poison": PoisonEffect(target); break;
             case "shop":
                 ShopManager shopManager = FindObjectOfType<ShopManager>();
                 if (shopManager != null)
@@ -377,6 +380,7 @@ public class GameEventManager : MonoBehaviour
             case "draw": Draw(target); break;
             case "lava": LavaEffect(target); break;
             case "move": RandomMoveEffect(target); break;
+            case "sleep": SleepEffect(target); break;
             case "windteleport": WindTeleportEffect(target); break;
             case "mainlighthealgimmick": TriggerMainLightHealGimmickEvent(); break;
             case "iceeffect": ApplyIceEffect(target); break;
@@ -430,6 +434,31 @@ public void OnClickCloseShopButton()
 
         // แสดง Panel แจ้งเตือน (อย่าลืมสร้าง Panel ชื่อ icepanel ใน Unity)
         ShowPanel("icepanel", true);
+    }
+
+    private void PoisonEffect(GameObject target)
+    {
+        PlayerState p = target.GetComponent<PlayerState>();
+        if (p != null)
+        {
+            // 🟢 สั่งให้ติดพิษ 3 เทิร์น
+            p.ApplyPoisonDebuff(3); 
+        }
+
+        // แสดง Panel แจ้งเตือน (อย่าลืมสร้าง Panel ชื่อ poisonpanel ใน Unity นะครับ)
+        ShowPanel("poisonpanel", true);
+    }
+
+    private void SleepEffect(GameObject target)
+    {
+        PlayerState p = target.GetComponent<PlayerState>();
+        if (p != null)
+        {
+            p.ApplySleepDebuff(3); // ติดหลับ 3 เทิร์น
+        }
+
+        // แสดง Panel แจ้งเตือน (อย่าลืมสร้าง Panel ชื่อ sleeppanel ใน Unity)
+        ShowPanel("sleeppanel", true);
     }
 
     private void WindTeleportEffect(GameObject target)
@@ -655,7 +684,7 @@ private IEnumerator ShowItemImageAfterDelay(Sprite itemSprite, float delayTime)
     private void Draw(GameObject target)
     {
         PlayerState p = target.GetComponent<PlayerState>();
-        if (p != null) p.PlayerHealth += 10;
+       
         ShowPanel("DrawCard", false);
        
     }
@@ -671,19 +700,67 @@ public void OnCardSelected()
     StartCoroutine(WaitAndEndTurn());
 }
 
-    private void LavaEffect(GameObject target)
+ private void LavaEffect(GameObject target)
     {
-        PlayerState player = target.GetComponent<PlayerState>();
-        if (player != null)
+        PlayerState p = target.GetComponent<PlayerState>();
+        if (p == null) 
         {
-            player.TakeDamage(25);
-            player.ApplyBurnDebuff(3);
-            Debug.Log($"<color=orange>🔥 {target.name} ติดสถานะ Burn 3 เทิร์น</color>");
+            ResolveGameTurnManager()?.RequestEndTurn();
+            return;
         }
 
-        ShowPanel("lavapanel", true);
-    }
+        // 🟢 1. กำหนดชื่อด่านธาตุไฟของคุณตรงนี้ (แก้ "MainFire" ให้ตรงกับชื่อ Scene ด่านไฟของคุณ)
+        bool isFireStage = SceneManager.GetActiveScene().name == "TestMain"; 
 
+        // 🟢 2. เช็คว่าคนที่ตกคือ "AI" และ "กำลังอยู่ในด่านไฟ" หรือไม่?
+        if (p.isAI && isFireStage)
+        {
+            Debug.Log("🌋 AI ตกช่องลาวาในด่านไฟ! สุ่มโอกาส 30% สาดลาวาใส่ผู้เล่น...");
+            
+            // สุ่มตัวเลข 1-100
+            int roll = Random.Range(1, 101); 
+            
+            if (roll <= 30) // โอกาส 30%
+            {
+                // หาตัวผู้เล่นคนจริง (ไม่ใช่ AI)
+                PlayerState humanPlayer = FindHumanPlayerInGame();
+                if (humanPlayer != null)
+                {
+                    Debug.Log($"<color=red>🔥 แจ็คพอต! AI ทำลาวากระเด็นใส่ {humanPlayer.name} ติดสถานะ Burn</color>");
+                    
+                    // สั่งให้คนเล่นติดสถานะไฟไหม้ 3 เทิร์น
+                    humanPlayer.ApplyBurnDebuff(3); 
+                    
+                    // แสดงหน้าต่างแจ้งเตือนว่าโดน AI สาดลาวาใส่ (อย่าลืมไปสร้าง Panel ด้วยนะครับ)
+                    ShowPanel("ailavapanel", true); 
+                    return; // จบการทำงาน (รอให้ Panel เป็นตัวสั่งจบเทิร์น)
+                }
+            }
+            else
+            {
+                Debug.Log("💨 รอดตัวไป! AI ตกช่องลาวาแต่ไม่มีอะไรเกิดขึ้น (สุ่มไม่ได้ 30%)");
+            }
+            
+            // ถ้าสุ่มไม่ติด ให้ AI จบเทิร์นไปเลย
+            ResolveGameTurnManager()?.RequestEndTurn();
+        }
+        else if (!p.isAI)
+        {
+            Debug.Log("🔥 ผู้เล่นตกช่องลาวา โดนดาเมจและติดไฟ!");
+            
+            p.TakeDamage(15); // โดนดาเมจจากการเหยียบลาวาทันที 15 
+            
+            // 🟢 เติมบรรทัดนี้ลงไป! เพื่อสั่งให้ตัวละครติด Debuff ไฟไหม้ 3 เทิร์น
+            p.ApplyBurnDebuff(3); 
+            
+            ShowPanel("lavapanel", true);
+        }
+        else
+        {
+            // AI ตกช่องลาวาในด่านอื่นๆ (ไม่ได้อยู่ด่านไฟ) ข้ามเทิร์นไปเลย
+            ResolveGameTurnManager()?.RequestEndTurn();
+        }
+    }
     private void RandomMoveEffect(GameObject target)
     {
         if (target == null)
@@ -727,6 +804,61 @@ public void OnCardSelected()
         }
 
         StartCoroutine(RandomMinigameEventCoroutine());
+    }
+
+    // 🟢 ฟังก์ชันใหม่สำหรับสุ่มรับกรรม (Debuff)
+    private void TriggerRandomDebuff(GameObject target)
+    {
+        if (target == null)
+        {
+            ResolveGameTurnManager()?.RequestEndTurn();
+            return;
+        }
+
+        // สุ่มตัวเลข 0 ถึง 4 (เพื่อเลือก 5 เอฟเฟกต์ที่มีอยู่แล้ว)
+        int randomIndex = Random.Range(0, 5);
+        
+        Debug.Log($"<color=orange>🎲 สุ่มช่อง Debuff ได้หมายเลข: {randomIndex}</color>");
+
+        switch (randomIndex)
+        {
+            case 0:
+                Debug.Log("💀 สุ่มโดน: Ice Effect!");
+                ApplyIceEffect(target);
+                break;
+
+            case 1:
+                Debug.Log("💀 สุ่มโดน: Lava Effect!");
+                LavaEffect(target); // โค้ดเดิมของคุณมี LavaEffect อยู่แล้ว เรียกใช้ได้เลย
+                break;
+
+            case 2:
+                Debug.Log("💀 สุ่มโดน: Curse Effect!");
+                CurseEffect(target);
+                break;
+
+            case 3:
+                Debug.Log("💀 สุ่มโดน: Poison Effect!");
+                PoisonEffect(target);
+                break;
+            case 4:
+                Debug.Log("💀 สุ่มโดน: Sleep Effect!");
+                SleepEffect(target);
+                break;
+        }
+    }
+
+    private void CurseEffect(GameObject target)
+    {
+        PlayerState p = target.GetComponent<PlayerState>();
+        if (p != null)
+        {
+            // 🟢 ยัดคำสาปเดินถอยหลัง 3 รอบให้ผู้เล่นคนนี้
+            p.ApplyBackwardCurse(3); 
+        }
+
+        // โชว์หน้าต่างแจ้งเตือน (อย่าลืมไปสร้าง Panel ชื่อ cursepanel ใน Unity นะครับ)
+        ShowPanel("cursepanel", true);
     }
 
     private bool CanSpinRandomEvent(string[] eventKeys, string source)
@@ -1339,6 +1471,20 @@ public void OnCardSelected()
         StopAllCoroutines();
         isRandomSpinning = false;
         Debug.Log("<color=orange>[EventManager] 🧹 ล้างสถานะสุ่มค้างเรียบร้อย</color>");
+    }
+
+   
+    private PlayerState FindHumanPlayerInGame()
+    {
+        PlayerState[] allPlayers = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
+        foreach (var player in allPlayers)
+        {
+            if (!player.isAI)
+            {
+                return player;
+            }
+        }
+        return null;
     }
 
     private void RememberCurrentBoardScene()

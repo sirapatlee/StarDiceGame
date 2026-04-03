@@ -102495,7 +102495,7 @@ MonoBehaviour:
     - {fileID: 733622933159522853}
     tileID: 36
     type: 0
-    eventName: 
+    eventName: battle
     lockRandomType: 0
   - node: {fileID: 5181649004245886856}
     connectedNodes:
@@ -102508,8 +102508,8 @@ MonoBehaviour:
     connectedNodes:
     - {fileID: 976594066449464221}
     tileID: 38
-    type: 0
-    eventName: 
+    type: 5
+    eventName: star
     lockRandomType: 0
   - node: {fileID: 976594066449464221}
     connectedNodes:
@@ -102543,8 +102543,8 @@ MonoBehaviour:
     connectedNodes:
     - {fileID: 5509282721213167332}
     tileID: 43
-    type: 0
-    eventName: 
+    type: 7
+    eventName: heal
     lockRandomType: 0
   - node: {fileID: 5509282721213167332}
     connectedNodes:
@@ -145385,7 +145385,7 @@ GameObject:
   - component: {fileID: 3201867955568835481}
   - component: {fileID: 598364098989483521}
   - component: {fileID: 139099922022357171}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player_CPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}

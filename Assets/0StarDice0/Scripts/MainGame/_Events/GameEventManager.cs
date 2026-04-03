@@ -650,7 +650,7 @@ private IEnumerator ShowItemImageAfterDelay(Sprite itemSprite, float delayTime)
     {
         PlayerState p = target.GetComponent<PlayerState>();
         if (p == null) return;
-        p.RemoveStars(Random.Range(5, 11));
+        p.RemoveStars(Random.Range(10, 21));
         ShowPanel("droppanel", true);
     }
 
@@ -670,7 +670,7 @@ private IEnumerator ShowItemImageAfterDelay(Sprite itemSprite, float delayTime)
         PlayerState p = target.GetComponent<PlayerState>();
         if (p != null) 
         {
-            p.PlayerHealth += 10;
+            p.PlayerHealth += 20;
             
             if (p.PlayerHealth > p.MaxHealth)
             {
@@ -1489,7 +1489,7 @@ public void OnCardSelected()
 
     private void RememberCurrentBoardScene()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
+        string currentSceneName = gameObject.scene.name;
         if (string.IsNullOrEmpty(currentSceneName)) return;
 
         boardGameSceneName = currentSceneName;

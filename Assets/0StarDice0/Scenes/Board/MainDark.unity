@@ -24222,7 +24222,7 @@ GameObject:
   - component: {fileID: 3201867955568835481}
   - component: {fileID: 598364098989483521}
   - component: {fileID: 139099922022357171}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player_CPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}

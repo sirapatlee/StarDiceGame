@@ -9956,7 +9956,7 @@ MonoBehaviour:
     lockRandomType: 0
   - node: {fileID: 676875088}
     connectedNodes:
-    - {fileID: 1301259954}
+    - {fileID: 1438278341}
     tileID: 24
     type: 5
     eventName: star
@@ -38091,6 +38091,10 @@ PrefabInstance:
     - target: {fileID: 2761467947554564247, guid: f4f70568a09330342b88e5c13b680a83, type: 3}
       propertyPath: moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665360065281291988, guid: f4f70568a09330342b88e5c13b680a83, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

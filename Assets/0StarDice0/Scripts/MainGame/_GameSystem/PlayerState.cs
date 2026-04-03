@@ -364,9 +364,9 @@ public class PlayerState : MonoBehaviour
         MaxExp = Mathf.CeilToInt(MaxExp * 1.2f); // เวลต่อไปยากขึ้น 20%
 
         // Bonus เมื่อเวลอัป (สไตล์ RPG)
-        MaxHealth += 20;
+        MaxHealth += 5;
         PlayerHealth = MaxHealth; // เลือดเด้งเต็ม
-        CurrentAttack += 2;       // ตีแรงขึ้น
+        CurrentAttack += 1;       // ตีแรงขึ้น
 
         if (PlayerLevel % 2 == 0)
         {

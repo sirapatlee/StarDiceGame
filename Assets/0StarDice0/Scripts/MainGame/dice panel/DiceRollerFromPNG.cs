@@ -180,7 +180,7 @@ public class DiceRollerFromPNG : MonoBehaviour
         if (sfxSource != null && rollResultSound != null) sfxSource.PlayOneShot(rollResultSound, 1.0f);
 
         Debug.Log($"🎲 ลูกเต๋าออก {finalResult} (Multiplier: x{pendingMultiplier})");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         int finalnubmber = finalResult* pendingMultiplier;
         pendingMultiplier = 1;
 

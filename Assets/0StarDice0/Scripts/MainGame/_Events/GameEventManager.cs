@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class GameEventManager : MonoBehaviour
 {
     private static GameEventManager cachedManager;
@@ -101,7 +101,8 @@ public class GameEventManager : MonoBehaviour
     // ✅ ตัวแปรเช็คสถานะการเล่น (เชื่อมกับ State Machine)
 
     public Sprite creditSprite; // 🖼️ ลากรูปเหรียญมาใส่ตรงนี้
-
+[Header("Event UI")]
+    public TextMeshProUGUI randomMoveText;
     public bool isEventProcessing => isRandomSpinning || (ResolveGameTurnManager() != null && ResolveGameTurnManager().currentState == GameState.EventProcessing);
 
     private GameTurnManager ResolveGameTurnManager()
@@ -770,7 +771,7 @@ public void OnCardSelected()
             ResolveGameTurnManager()?.RequestEndTurn();
         }
     }
-    private void RandomMoveEffect(GameObject target)
+   private void RandomMoveEffect(GameObject target)
     {
         if (target == null)
         {
@@ -786,9 +787,35 @@ public void OnCardSelected()
             return;
         }
 
+        // สุ่มเลข 1 - 6
         int randomSteps = Random.Range(1, 7);
         Debug.Log($"[EventManager] Random move event: {target.name} เดินเพิ่ม {randomSteps} ช่อง");
-        walker.ExecuteMove(randomSteps);
+
+        // 🟢 เรียกใช้ Coroutine เพื่อโชว์เลขก่อนเดิน
+        StartCoroutine(ShowNumberAndMoveRoutine(walker, randomSteps));
+    }
+
+    // 🟢 ฟังก์ชันสำหรับโชว์เลข -> หน่วงเวลา -> แล้วค่อยเดิน
+    private IEnumerator ShowNumberAndMoveRoutine(PlayerPathWalker walker, int steps)
+    {
+        // 1. ถ้ามี UI Text ลากใส่ไว้ ให้เปิดโชว์ข้อความ
+        if (randomMoveText != null)
+        {
+            randomMoveText.text = $"+{steps}"; // โชว์ข้อความเช่น "+3"
+            randomMoveText.gameObject.SetActive(true);
+        }
+
+        // 2. หยุดรอ 1 วินาที ให้ผู้เล่นได้เห็นตัวเลขชัดๆ
+        yield return new WaitForSeconds(1.0f);
+
+        // 3. ปิดข้อความทิ้ง
+        if (randomMoveText != null)
+        {
+            randomMoveText.gameObject.SetActive(false);
+        }
+
+        // 4. สั่งให้ตัวละครเดิน!
+        walker.ExecuteMove(steps);
     }
 
     public void TriggerRandomEvent(GameObject target)

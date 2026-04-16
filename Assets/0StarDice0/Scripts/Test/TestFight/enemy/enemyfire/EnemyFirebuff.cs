@@ -84,7 +84,7 @@ public class EnemyFirebuff : MonoBehaviour
     int healPerTurnAmount = 1; // ค่า default
     bool isDodgeActive = false;
     float dodgeChance = 0f;
-
+public bool isBattleOver = false;
     bool isElementalAttackBoosted = false;
     int isElementalAttackBoostedx2 = 0;
     float isElementalAttackBoostedRandom = 0f;
@@ -1882,6 +1882,7 @@ public class EnemyFirebuff : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2118,6 +2119,7 @@ public PlayerState player;
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2439,6 +2441,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
+        if (isBattleOver) return; 
   GameEventManager.TryAddCount1(1);
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);

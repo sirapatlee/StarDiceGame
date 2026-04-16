@@ -11862,6 +11862,7 @@ MonoBehaviour:
   - {fileID: 486352385}
   itemImages:
   - {fileID: 21300000, guid: 99a7b848a9745084d83a7c268a8561ef, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 2048094081}
   GodArmor: 14
 --- !u!82 &1536828560

@@ -62,7 +62,7 @@ public class BossWaterHard : MonoBehaviour
     private int enemyDamageReductionTurns = 0;
     private bool isEnemyDamageReduced = false;
     private bool reflectNextAttackWind = false;
-
+public bool isBattleOver = false;
     private bool isShieldActive = false;
     private int shieldTurnsLeft = 0;
     int EnemyBuffLight = 0;
@@ -1907,6 +1907,7 @@ public class BossWaterHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2153,6 +2154,7 @@ public class BossWaterHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2174,6 +2176,13 @@ public class BossWaterHard : MonoBehaviour
                  showImage.sprite = itemImages[0]; 
                  showImage.gameObject.SetActive(true);
             }
+               else
+        {
+            showImage.sprite = itemImages[1]; 
+                 showImage.gameObject.SetActive(true);
+            Debug.Log("ผู้เล่นไม่ได้รับไอเท็ม");
+        }
+
            
     }
     void DamagePlayer(int damage) //<-- ดาเมจศัตรู
@@ -2454,7 +2463,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+if (isBattleOver) return; 
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 

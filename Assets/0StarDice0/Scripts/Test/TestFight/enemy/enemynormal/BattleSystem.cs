@@ -155,6 +155,8 @@ public class BattleSystem : MonoBehaviour
     int EnemyShieldWater = 0;
     int doublereflectNextAttackWind = 0;
 
+    public bool isBattleOver = false;
+
     private List<CardData> selectedCards = new List<CardData>();
     void Start()
     { Debug.Log(">>> BattleSystem เริ่มทำงานแล้วนะ! <<<");
@@ -1881,6 +1883,7 @@ public class BattleSystem : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2097,7 +2100,7 @@ public PlayerState player;
 
         if (enemyHP <= 0)
         {
-
+            isBattleOver = true;
             OpenChest();
             GiveExpToPlayer();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2412,10 +2415,9 @@ StartCoroutine(DelayedEnemyTurn());
         UpdateSkillButtons();
     }
 
-    
-
     void EnemyTurn()
     {
+        if (isBattleOver) return;
  GameEventManager.TryAddCount1(1);
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);

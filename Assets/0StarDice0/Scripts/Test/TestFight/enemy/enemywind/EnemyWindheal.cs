@@ -33,7 +33,7 @@ public class EnemyWindheal: MonoBehaviour
     private bool isPlayerTurn = true; // เริ่มเกมเป็นเทิร์นผู้เล่น
 
     private int burnTurnsLeft = 0;
-
+public bool isBattleOver = false;
     public TMP_Text playerturntext;
     public TMP_Text enemyturntext;
     private int SuperburnTurnsLeft = 0;
@@ -1882,6 +1882,7 @@ public class EnemyWindheal: MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2123,6 +2124,7 @@ public PlayerState player;
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             GiveExpToPlayer();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2439,6 +2441,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
+        if (isBattleOver) return; 
   GameEventManager.TryAddCount1(1);
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);

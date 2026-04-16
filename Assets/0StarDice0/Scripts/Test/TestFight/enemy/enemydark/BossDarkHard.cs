@@ -88,7 +88,7 @@ public class BossDarkHard : MonoBehaviour
     int healPerTurnAmount = 1; // ค่า default
     bool isDodgeActive = false;
     float dodgeChance = 0f;
-
+public bool isBattleOver = false;
     bool isElementalAttackBoosted = false;
     int isElementalAttackBoostedx2 = 0;
     float isElementalAttackBoostedRandom = 0f;
@@ -1889,6 +1889,7 @@ public class BossDarkHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
             ShowResultPanelVictory("Victory!");
@@ -2136,6 +2137,7 @@ public class BossDarkHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
             ShowResultPanelVictory("Victory!");
@@ -2159,6 +2161,13 @@ public class BossDarkHard : MonoBehaviour
                  showImage.gameObject.SetActive(true);
                  Debug.Log("ผู้เล่นได้รับไอเท็มแล้ว!");
             }
+               else
+        {
+            showImage.sprite = itemImages[1]; 
+                 showImage.gameObject.SetActive(true);
+            Debug.Log("ผู้เล่นไม่ได้รับไอเท็ม");
+        }
+
 
     }
     void DamagePlayer(int damage) //<-- ดาเมจศัตรู
@@ -2439,7 +2448,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+ if (isBattleOver) return;
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 

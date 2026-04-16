@@ -55,7 +55,7 @@ public class EnemyWaterbuff : MonoBehaviour
     private int silenceEnemyTurns = 0; // เทิร์นที่ห้ามศัตรูใช้สกิล
     private bool reflectNextAttack = false;
     private bool isIgnoreElementCardActive = false;
-
+public bool isBattleOver = false;
     private int enemyDamageReductionTurns = 0;
     private bool isEnemyDamageReduced = false;
     private bool reflectNextAttackWind = false;
@@ -1882,6 +1882,7 @@ public class EnemyWaterbuff : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2123,6 +2124,7 @@ public PlayerState player;
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             GiveExpToPlayer();
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2439,6 +2441,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
+        if (isBattleOver) return; 
   GameEventManager.TryAddCount1(1);
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);

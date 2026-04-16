@@ -87,7 +87,7 @@ public class BossWater : MonoBehaviour
     int healPerTurnAmount = 1; // ค่า default
     bool isDodgeActive = false;
     float dodgeChance = 0f;
-
+public bool isBattleOver = false;
     bool isElementalAttackBoosted = false;
     int isElementalAttackBoostedx2 = 0;
     float isElementalAttackBoostedRandom = 0f;
@@ -1907,6 +1907,7 @@ public class BossWater : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2153,6 +2154,7 @@ public class BossWater : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2174,6 +2176,13 @@ public class BossWater : MonoBehaviour
                  showImage.sprite = itemImages[0]; 
                  showImage.gameObject.SetActive(true);
             }
+               else
+        {
+            showImage.sprite = itemImages[1]; 
+                 showImage.gameObject.SetActive(true);
+            Debug.Log("ผู้เล่นไม่ได้รับไอเท็ม");
+        }
+
            
     }
     void DamagePlayer(int damage) //<-- ดาเมจศัตรู
@@ -2454,7 +2463,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+if (isBattleOver) return; 
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 

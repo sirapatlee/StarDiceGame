@@ -3343,6 +3343,7 @@ MonoBehaviour:
   nextLevelToUnlock: 2
   itemImages:
   - {fileID: 21300000, guid: c74ed95ff6b9d4ea78de0e3246f37789, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 1517117203}
   FireSword: 19
 --- !u!1001 &459294694

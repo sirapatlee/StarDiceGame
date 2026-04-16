@@ -13579,6 +13579,7 @@ MonoBehaviour:
   nextLevelToUnlock: 3
   itemImages:
   - {fileID: 21300000, guid: 334b7085edbca194d91ceafd85fa49f5, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 632712959}
   WaterGodArmor: 24
 --- !u!1 &1873698388

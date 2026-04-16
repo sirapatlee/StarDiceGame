@@ -19741,6 +19741,7 @@ MonoBehaviour:
   - {fileID: 832953057}
   itemImages:
   - {fileID: 21300000, guid: 8f65e2bfced6b4781859766e951f066d, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 941212296}
   DarkLegendaryDagger: 39
 --- !u!82 &1492662533

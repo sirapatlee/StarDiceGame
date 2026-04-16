@@ -7029,6 +7029,7 @@ MonoBehaviour:
   nextLevelToUnlock: 4
   itemImages:
   - {fileID: 21300000, guid: 29af07531dc441b41be311920cc0bae0, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 89016116}
   WindLegendaryEye: 29
 --- !u!82 &1043357028

@@ -2169,6 +2169,13 @@ public class BossWind : MonoBehaviour
                  showImage.sprite = itemImages[0]; 
                  showImage.gameObject.SetActive(true);
             }
+               else
+        {
+            showImage.sprite = itemImages[1]; 
+                 showImage.gameObject.SetActive(true);
+            Debug.Log("ผู้เล่นไม่ได้รับไอเท็ม");
+        }
+
         
        
     }

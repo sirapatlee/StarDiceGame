@@ -5232,6 +5232,7 @@ MonoBehaviour:
   nextLevelToUnlock: 5
   itemImages:
   - {fileID: 21300000, guid: 072ca68093d1c436dabcf5d37768b1c0, type: 3}
+  - {fileID: 21300000, guid: 3fbf596981ae71d42a5da57968062796, type: 3}
   showImage: {fileID: 568096336}
   EarthLegendaryHammer: 34
 --- !u!1001 &893739183

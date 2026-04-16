@@ -2158,6 +2158,13 @@ public class BossDarkMedium : MonoBehaviour
                  showImage.gameObject.SetActive(true);
                  Debug.Log("ผู้เล่นได้รับไอเท็มแล้ว!");
             }
+               else
+        {
+            showImage.sprite = itemImages[1]; 
+                 showImage.gameObject.SetActive(true);
+            Debug.Log("ผู้เล่นไม่ได้รับไอเท็ม");
+        }
+
 
     }
     void DamagePlayer(int damage) //<-- ดาเมจศัตรู

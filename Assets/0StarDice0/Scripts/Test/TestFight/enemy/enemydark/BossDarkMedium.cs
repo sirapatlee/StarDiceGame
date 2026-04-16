@@ -59,7 +59,7 @@ public class BossDarkMedium : MonoBehaviour
     private int silenceEnemyTurns = 0; // เทิร์นที่ห้ามศัตรูใช้สกิล
     private bool reflectNextAttack = false;
     private bool isIgnoreElementCardActive = false;
-
+public bool isBattleOver = false;
     private int enemyDamageReductionTurns = 0;
     private bool isEnemyDamageReduced = false;
     private bool reflectNextAttackWind = false;
@@ -1889,6 +1889,7 @@ public class BossDarkMedium : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
             ShowResultPanelVictory("Victory!");
@@ -2136,6 +2137,7 @@ public class BossDarkMedium : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             Debug.Log("ศัตรูแพ้แล้ว!");
             ShowResultPanelVictory("Victory!");
@@ -2445,7 +2447,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+ if (isBattleOver) return;
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 

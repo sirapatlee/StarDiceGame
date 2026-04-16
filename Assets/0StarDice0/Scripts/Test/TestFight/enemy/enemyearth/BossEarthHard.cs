@@ -64,7 +64,7 @@ public class BossEarthHard : MonoBehaviour
     private int enemyDamageReductionTurns = 0;
     private bool isEnemyDamageReduced = false;
     private bool reflectNextAttackWind = false;
-
+public bool isBattleOver = false;
     private bool isShieldActive = false;
     private int shieldTurnsLeft = 0;
     int EnemyBuffLight = 0;
@@ -1908,6 +1908,7 @@ public class BossEarthHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2148,6 +2149,7 @@ public class BossEarthHard : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+            isBattleOver = true;
             OpenChest();
             WinLevel();
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2456,7 +2458,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+if (isBattleOver) return; 
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 

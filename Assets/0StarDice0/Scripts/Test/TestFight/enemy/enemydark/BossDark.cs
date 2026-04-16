@@ -87,7 +87,7 @@ public class BossDark : MonoBehaviour
     int healPerTurnAmount = 1; // ค่า default
     bool isDodgeActive = false;
     float dodgeChance = 0f;
-
+public bool isBattleOver = false;
     bool isElementalAttackBoosted = false;
     int isElementalAttackBoostedx2 = 0;
     float isElementalAttackBoostedRandom = 0f;
@@ -1890,6 +1890,7 @@ public class BossDark : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2138,6 +2139,7 @@ public class BossDark : MonoBehaviour
 
         if (enemyHP <= 0)
         {
+             isBattleOver = true;
             OpenChest();
             
             Debug.Log("ศัตรูแพ้แล้ว!");
@@ -2447,7 +2449,7 @@ StartCoroutine(DelayedEnemyTurn());
 
     void EnemyTurn()
     {
-
+         if (isBattleOver) return;
         playerturntext.gameObject.SetActive(false);
         enemyturntext.gameObject.SetActive(true);
 
